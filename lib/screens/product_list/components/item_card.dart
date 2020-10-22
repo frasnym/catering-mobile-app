@@ -20,40 +20,43 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Container(
-            padding: EdgeInsets.all(kDefaultPaddin),
-            // width: 160,
-            // height: 180,
-            decoration: BoxDecoration(
-              color: product.color,
-              borderRadius: BorderRadius.circular(16),
+    return GestureDetector(
+      onTap: press,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(kDefaultPaddin),
+              // width: 160,
+              // height: 180,
+              decoration: BoxDecoration(
+                color: product.color,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Image.network(product.imageUrl),
             ),
-            child: Image.network(product.imageUrl),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: kDefaultPaddin / 4,
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: kDefaultPaddin / 4,
+            ),
+            child: Text(
+              product.title,
+              style: TextStyle(
+                color: kTextLightColor,
+              ),
+            ),
           ),
-          child: Text(
-            product.title,
+          Text(
+            // '${product.price}',
+            '${formatCurrency.format(product.price)}',
             style: TextStyle(
-              color: kTextLightColor,
+              fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-        Text(
-          // '${product.price}',
-          '${formatCurrency.format(product.price)}',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

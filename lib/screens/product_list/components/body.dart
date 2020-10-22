@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 
-import 'package:catering_app/models/Product.dart';
+import 'package:provider/provider.dart';
+import 'package:catering_app/providers/products.dart';
 
 import 'package:catering_app/constants.dart';
 import 'package:catering_app/screens/product_list/components/categories.dart';
 import 'package:catering_app/screens/product_list/components/item_card.dart';
+import 'package:catering_app/screens/product_detail/product_detail_screen.dart';
 
 class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final products = Provider.of<Products>(context, listen: false).items;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -38,6 +42,10 @@ class Body extends StatelessWidget {
               ),
               itemBuilder: (context, index) => ItemCard(
                 product: products[index],
+                press: () => Navigator.of(context).pushNamed(
+                  ProductDetailScreen.routeName,
+                  arguments: products[index].id,
+                ),
               ),
             ),
           ),

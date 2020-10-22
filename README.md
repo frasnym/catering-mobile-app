@@ -14,3 +14,4 @@ Building a dummy catering app with Flutter
 | Name | Version |
 | ------ | ------ |
 | [intl](https://pub.dev/packages/intl) | 0.16.1 |
+| [provider](https://pub.dev/packages/provider) | 4.3.2 |

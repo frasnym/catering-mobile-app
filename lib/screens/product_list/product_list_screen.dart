@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:catering_app/constants.dart';
+import 'package:catering_app/methods/appbar_actions.dart';
 import 'package:catering_app/screens/product_list/components/body.dart';
 
 class ProductListScreen extends StatelessWidget {
+  static const routeName = '/product-list';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,13 +18,7 @@ class ProductListScreen extends StatelessWidget {
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
-      actions: [
-        IconButton(icon: Icon(Icons.search), onPressed: null),
-        IconButton(icon: Icon(Icons.shopping_cart_outlined), onPressed: null),
-        SizedBox(
-          width: kDefaultPaddin / 2,
-        )
-      ],
+      actions: appBarActions(),
     );
   }
 }
