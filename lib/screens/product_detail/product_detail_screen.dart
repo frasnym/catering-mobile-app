@@ -24,7 +24,7 @@ class ProductDetailScreen extends StatelessWidget {
         elevation: 0,
         actions: appBarActions(),
       ),
-      body: Body(),
+      body: Body(product: productData),
     );
   }
 }

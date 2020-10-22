@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:catering_app/models/Product.dart';
+import 'package:catering_app/models/product.dart';
 
 import 'package:catering_app/constants.dart';
 
