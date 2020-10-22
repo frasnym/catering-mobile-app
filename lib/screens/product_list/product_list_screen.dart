@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:catering_app/constants.dart';
-import 'package:catering_app/screens/home/components/body.dart';
+import 'package:catering_app/screens/product_list/components/body.dart';
 
-class HomeScreen extends StatelessWidget {
+class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

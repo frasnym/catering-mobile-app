@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:catering_app/models/Product.dart';
 
 import 'package:catering_app/constants.dart';
-import 'package:catering_app/screens/home/components/categories.dart';
-import 'package:catering_app/screens/home/components/item_card.dart';
+import 'package:catering_app/screens/product_list/components/categories.dart';
+import 'package:catering_app/screens/product_list/components/item_card.dart';
 
 class Body extends StatelessWidget {
   @override
