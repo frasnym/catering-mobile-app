@@ -5,7 +5,7 @@ import 'package:catering_app/models/product.dart';
 import 'package:catering_app/screens/product_detail/components/product_title_image.dart';
 import 'package:catering_app/screens/product_detail/components/taste_and_badge.dart';
 import 'package:catering_app/screens/product_detail/components/description.dart';
-import 'package:catering_app/screens/product_detail/components/cart_counter.dart';
+import 'package:catering_app/screens/product_detail/components/counter_with_favorite.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -43,27 +43,7 @@ class Body extends StatelessWidget {
                         isRecomended: product.isRecomended,
                       ),
                       Description(description: product.description),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CartCounter(),
-                          ),
-                          DecoratedBox(
-                            child: Padding(
-                              padding: const EdgeInsets.all(kDefaultPaddin / 4),
-                              child: Icon(
-                                Icons.favorite,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              shape: BoxShape.circle,
-                            ),
-                          )
-                        ],
-                      ),
+                      CounterWithFavorite(),
                     ],
                   ),
                 ),
@@ -76,3 +56,5 @@ class Body extends StatelessWidget {
     );
   }
 }
+
+
