@@ -10,8 +10,9 @@ class Products with ChangeNotifier {
       title: 'Chicken Salad',
       subtitle: 'Oriental Salad',
       price: 30000,
-      description: 'Oishi Chicken Salad',
+      description: 'Oishi Chicken Salad Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       color: Color(0XFFE3D4B7),
+      isRecomended: true
     ),
     Product(
       id: 2,
@@ -19,8 +20,9 @@ class Products with ChangeNotifier {
       title: 'Cap Cay',
       subtitle: 'Oriental Salad',
       price: 50000,
-      description: 'Oishi Cap Cay',
+      description: 'Oishi Cap Cay Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       color: Color(0XFF7E4327),
+      isRecomended: false
     )
   ];
 

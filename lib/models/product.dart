@@ -4,6 +4,7 @@ class Product {
   final String imageUrl, title, subtitle, description;
   final int price, id;
   final Color color;
+  final bool isRecomended;
 
   Product({
     @required this.id,
@@ -13,6 +14,7 @@ class Product {
     @required this.price,
     @required this.description,
     @required this.color,
+    @required this.isRecomended,
   });
 }
 

@@ -1,8 +1,11 @@
-import 'package:catering_app/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'package:catering_app/constants.dart';
 import 'package:catering_app/models/product.dart';
 import 'package:catering_app/screens/product_detail/components/product_title_image.dart';
+import 'package:catering_app/screens/product_detail/components/taste_and_badge.dart';
+import 'package:catering_app/screens/product_detail/components/description.dart';
+import 'package:catering_app/screens/product_detail/components/cart_counter.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -36,33 +39,29 @@ class Body extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
+                      TasteAndBadge(
+                        isRecomended: product.isRecomended,
+                      ),
+                      Description(description: product.description),
                       Row(
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Spiciness",
-                                style: Theme.of(context).textTheme.headline6,
-                              ),
-                              Row(
-                                children: [
-                                  ColorDot(
-                                    color: Color(0XFFFF9999),
-                                    text: 'Normal',
-                                  ),
-                                  ColorDot(
-                                    color: Color(0XFFB20000),
-                                    text: 'Mild',
-                                  ),
-                                  ColorDot(
-                                    color: Color(0XFF4C0000),
-                                    text: 'Spicy',
-                                  ),
-                                ],
-                              ),
-                            ],
+                          Expanded(
+                            child: CartCounter(),
                           ),
+                          DecoratedBox(
+                            child: Padding(
+                              padding: const EdgeInsets.all(kDefaultPaddin / 4),
+                              child: Icon(
+                                Icons.favorite,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              shape: BoxShape.circle,
+                            ),
+                          )
                         ],
                       ),
                     ],
@@ -71,54 +70,6 @@ class Body extends StatelessWidget {
                 ProductTitleImage(product: product),
               ],
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ColorDot extends StatelessWidget {
-  final Color color;
-  final String text;
-  final bool isSelected;
-
-  const ColorDot({
-    Key key,
-    this.color,
-    this.isSelected = false,
-    this.text,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(
-        top: kDefaultPaddin / 4,
-        right: kDefaultPaddin / 2,
-      ),
-      child: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(2.5),
-            height: 24,
-            width: 24,
-            decoration: BoxDecoration(
-              border: Border.all(color: color),
-              shape: BoxShape.circle,
-            ),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: color,
-                shape: BoxShape.circle,
-              ),
-              child: null,
-            ),
-          ),
-          SizedBox(height: 4),
-          Text(
-            text,
-            style: TextStyle(fontSize: 12),
           ),
         ],
       ),
