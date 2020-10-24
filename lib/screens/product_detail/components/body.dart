@@ -6,6 +6,7 @@ import 'package:catering_app/screens/product_detail/components/product_title_ima
 import 'package:catering_app/screens/product_detail/components/taste_and_badge.dart';
 import 'package:catering_app/screens/product_detail/components/description.dart';
 import 'package:catering_app/screens/product_detail/components/counter_with_favorite.dart';
+import 'package:catering_app/screens/product_detail/components/add_to_cart.dart';
 
 class Body extends StatelessWidget {
   final Product product;
@@ -44,6 +45,7 @@ class Body extends StatelessWidget {
                       ),
                       Description(description: product.description),
                       CounterWithFavorite(),
+                      AddToCart(product: product),
                     ],
                   ),
                 ),
@@ -56,5 +58,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-
-
