@@ -27,7 +27,7 @@ class ItemCard extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(kDefaultPaddin),
+              padding: const EdgeInsets.all(kDefaultPaddin),
               // width: 160,
               // height: 180,
               decoration: BoxDecoration(
@@ -41,7 +41,7 @@ class ItemCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: kDefaultPaddin / 4,
             ),
             child: Text(

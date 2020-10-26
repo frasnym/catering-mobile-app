@@ -5,6 +5,7 @@ class Product {
   final int price, id;
   final Color color;
   final bool isRecomended;
+  final List<int> subcategories;
 
   Product({
     @required this.id,
@@ -14,6 +15,7 @@ class Product {
     @required this.price,
     @required this.description,
     @required this.color,
+    @required this.subcategories,
     @required this.isRecomended,
   });
 }

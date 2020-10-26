@@ -16,7 +16,7 @@ class ProductListScreen extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.brown,
       elevation: 0,
       actions: appBarActions(),
     );

@@ -82,13 +82,13 @@ class ColorDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: kDefaultPaddin / 4,
       ),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(2.5),
+            padding: const EdgeInsets.all(2.5),
             height: 24,
             width: 24,
             decoration: BoxDecoration(

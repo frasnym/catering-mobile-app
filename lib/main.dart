@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import 'package:catering_app/providers/products.dart';
+import 'package:catering_app/providers/subcategories.dart';
 
 import 'package:catering_app/constants.dart';
-import 'package:catering_app/providers/products.dart';
 import 'package:catering_app/screens/product_list/product_list_screen.dart';
 import 'package:catering_app/screens/product_detail/product_detail_screen.dart';
 
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
           create: (ctx) => Products(),
+        ),
+        ChangeNotifierProvider(
+          create: (ctx) => Subcategories(),
         ),
       ],
       child: MaterialApp(

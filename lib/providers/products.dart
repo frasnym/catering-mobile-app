@@ -12,6 +12,9 @@ class Products with ChangeNotifier {
       price: 30000,
       description: 'Oishi Chicken Salad Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       color: Color(0XFFE3D4B7),
+      subcategories: [
+        3,
+      ],
       isRecomended: true
     ),
     Product(
@@ -22,6 +25,10 @@ class Products with ChangeNotifier {
       price: 50000,
       description: 'Oishi Cap Cay Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       color: Color(0XFF7E4327),
+      subcategories: [
+        2,
+        3,
+      ],
       isRecomended: false
     )
   ];
@@ -32,5 +39,11 @@ class Products with ChangeNotifier {
 
   Product findById(int id) {
     return _items.firstWhere((prod) => prod.id == id);
+  }
+
+  List<Product> findByContainSubCatetogyId(int id) {
+    return _items.where((prod) {
+      return prod.subcategories.contains(id);
+    }).toList();
   }
 }
