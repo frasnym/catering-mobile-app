@@ -36,7 +36,10 @@ class ItemCard extends StatelessWidget {
               ),
               child: Hero(
                 tag: '${product.id}',
-                child: Image.network(product.imageUrl),
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/images/cutlery_placeholder.png'),
+                  image: NetworkImage(product.imageUrl),
+                ),
               ),
             ),
           ),
@@ -46,7 +49,7 @@ class ItemCard extends StatelessWidget {
             ),
             child: Text(
               product.title,
-              style: TextStyle(
+              style: const TextStyle(
                 color: kTextLightColor,
               ),
             ),
@@ -54,7 +57,7 @@ class ItemCard extends StatelessWidget {
           Text(
             // '${product.price}',
             '${formatCurrency.format(product.price)}',
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
             ),
           ),

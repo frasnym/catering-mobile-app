@@ -30,6 +30,19 @@ class Products with ChangeNotifier {
         3,
       ],
       isRecomended: false
+    ),
+    Product(
+      id: 3,
+      imageUrl: 'https://i.ibb.co/12KMy3q/3-fried-rice.png',
+      title: 'Fried Rice',
+      subtitle: 'Fried Rice Indonesian Style',
+      price: 20000,
+      description: 'Oishi Fried Rice Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      color: Color(0XFFC48742),
+      subcategories: [
+        1,
+      ],
+      isRecomended: false
     )
   ];
 
