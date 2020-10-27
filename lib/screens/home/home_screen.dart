@@ -56,12 +56,13 @@ class HomeScreen extends StatelessWidget {
                           vertical: kDefaultPaddin / 2),
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: popularItem.length,
+                        itemCount: 4,
                         itemBuilder: (_, index) => GestureDetector(
                           onTap: () => Navigator.of(context).pushNamed(
                               ProductDetailScreen.routeName,
                               arguments: popularItem[index].id),
                           child: Container(
+                            padding: const EdgeInsets.all(kDefaultPaddin / 4),
                             decoration: BoxDecoration(
                               color: popularItem[index].color,
                               borderRadius: BorderRadius.circular(7),
@@ -77,8 +78,14 @@ class HomeScreen extends StatelessWidget {
                             ),
                             margin: const EdgeInsets.all(kDefaultPaddin / 4),
                             width: 100,
-                            child: Image.network(
-                              popularItem[index].imageUrl,
+                            child: Hero(
+                              tag: '${popularItem[index].id}',
+                              child: FadeInImage(
+                                placeholder: const AssetImage(
+                                    'assets/images/cutlery_placeholder.png'),
+                                image:
+                                    NetworkImage(popularItem[index].imageUrl),
+                              ),
                             ),
                           ),
                         ),
