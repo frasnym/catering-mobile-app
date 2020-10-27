@@ -5,6 +5,7 @@ import 'package:catering_app/providers/products.dart';
 import 'package:catering_app/providers/subcategories.dart';
 
 import 'package:catering_app/constants.dart';
+import 'package:catering_app/screens/home/home_screen.dart';
 import 'package:catering_app/screens/product_list/product_list_screen.dart';
 import 'package:catering_app/screens/product_detail/product_detail_screen.dart';
 
@@ -32,8 +33,9 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: ProductListScreen(),
+        home: HomeScreen(),
         routes: {
+          HomeScreen.routeName: (ctx) => HomeScreen(),
           ProductListScreen.routeName: (ctx) => ProductListScreen(),
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
         },

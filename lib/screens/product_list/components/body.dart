@@ -23,7 +23,6 @@ class _BodyState extends State<Body> {
     final _products = Provider.of<Products>(context, listen: false).findByContainSubCatetogyId(_subCategoryId);
 
     void changeSubCategory(int selectedSubCategoryId) {
-      print(selectedSubCategoryId);
       setState(() {
         _subCategoryId = selectedSubCategoryId;
       });

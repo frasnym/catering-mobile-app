@@ -42,7 +42,7 @@ class Products with ChangeNotifier {
       subcategories: [
         1,
       ],
-      isRecomended: false
+      isRecomended: true
     )
   ];
 
@@ -52,6 +52,10 @@ class Products with ChangeNotifier {
 
   Product findById(int id) {
     return _items.firstWhere((prod) => prod.id == id);
+  }
+
+  List<Product> findPopularItem() {
+    return _items.where((prod) => prod.isRecomended).toList();
   }
 
   List<Product> findByContainSubCatetogyId(int id) {
