@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:catering_app/constants.dart';
@@ -8,15 +7,16 @@ class AddToCart extends StatelessWidget {
   const AddToCart({
     Key key,
     @required this.product,
+    this.addToCart,
   }) : super(key: key);
 
   final Product product;
+  final Function addToCart;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: kDefaultPaddin),
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
       child: Row(
         children: [
           Container(
@@ -37,7 +37,11 @@ class AddToCart extends StatelessWidget {
                 Icons.add_shopping_cart,
                 color: product.color,
               ),
-              onPressed: () {},
+              onPressed: () => addToCart(
+                product.id,
+                product.price,
+                product.title,
+              ),
             ),
           ),
           Expanded(
@@ -55,7 +59,9 @@ class AddToCart extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  // TODO instant checkout
+                },
               ),
             ),
           ),

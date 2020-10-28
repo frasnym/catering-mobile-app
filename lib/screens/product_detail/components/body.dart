@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'package:provider/provider.dart';
+import 'package:catering_app/providers/cart.dart';
+
 import 'package:catering_app/constants.dart';
 import 'package:catering_app/models/product.dart';
+
 import 'package:catering_app/screens/product_detail/components/product_title_image.dart';
 import 'package:catering_app/screens/product_detail/components/taste_and_badge.dart';
 import 'package:catering_app/screens/product_detail/components/description.dart';
@@ -20,12 +24,34 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   var _foodNote = '';
+  var _itemCounter = 1;
 
   void _updateFoodNote(text) {
     setState(() {
       _foodNote = text;
     });
-    print(_foodNote);
+    return;
+  }
+
+  void _plusItemCounter() {
+    setState(() {
+      _itemCounter++;
+    });
+    return;
+  }
+
+  void _minusItemCounter() {
+    if (_itemCounter > 1) {
+      setState(() {
+        _itemCounter--;
+      });
+    }
+    return;
+  }
+
+  void _addToCart(int productId, int price, String title) {
+    Provider.of<Cart>(context, listen: false)
+        .addItem('$productId', price, title, _foodNote);
   }
 
   @override
@@ -63,8 +89,15 @@ class _BodyState extends State<Body> {
                         Description(description: widget.product.description),
                         FoodNote(updateFoodNote: _updateFoodNote),
                         const SizedBox(height: kDefaultPaddin),
-                        CounterWithFavorite(),
-                        AddToCart(product: widget.product),
+                        CounterWithFavorite(
+                          itemCounter: _itemCounter,
+                          minusItemCounter: _minusItemCounter,
+                          plusItemCounter: _plusItemCounter,
+                        ),
+                        AddToCart(
+                          product: widget.product,
+                          addToCart: _addToCart,
+                        ),
                       ],
                     ),
                   ),
@@ -78,4 +111,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-

@@ -2,28 +2,17 @@ import 'package:flutter/material.dart';
 
 import 'package:catering_app/constants.dart';
 
-class CartCounter extends StatefulWidget {
-  @override
-  _CartCounterState createState() => _CartCounterState();
-}
+class CartCounter extends StatelessWidget {
+  const CartCounter({
+    Key key,
+    @required this.minusItemCounter,
+    @required this.itemCounter,
+    @required this.plusItemCounter,
+  }) : super(key: key);
 
-class _CartCounterState extends State<CartCounter> {
-  var itemCounter = 1;
-
-  void plusItemCounter() {
-    setState(() {
-      itemCounter++;
-    });
-  }
-
-  void minusItemCounter() {
-    if (itemCounter > 1) {
-      setState(() {
-        itemCounter--;
-      });
-    }
-    return;
-  }
+  final Function minusItemCounter;
+  final int itemCounter;
+  final Function plusItemCounter;
 
   @override
   Widget build(BuildContext context) {
