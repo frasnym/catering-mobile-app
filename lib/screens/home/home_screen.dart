@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:catering_app/providers/products.dart';
 
 import 'package:catering_app/constants.dart';
+import 'package:catering_app/screens/home/components/home_banner.dart';
 import 'package:catering_app/screens/product_list/product_list_screen.dart';
 import 'package:catering_app/screens/product_detail/product_detail_screen.dart';
 
@@ -21,22 +22,7 @@ class HomeScreen extends StatelessWidget {
           height: screenSize.height,
           child: Column(
             children: [
-              ShaderMask(
-                shaderCallback: (rect) {
-                  return const LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.black, Colors.transparent],
-                  ).createShader(
-                      Rect.fromLTRB(0, 150, rect.width, rect.height));
-                },
-                blendMode: BlendMode.dstIn,
-                child: Image.asset(
-                  'assets/images/main_banner.jpg',
-                  height: 300,
-                  fit: BoxFit.cover,
-                ),
-              ),
+              HomeBanner(screenSize: screenSize),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: kDefaultPaddin * 1.5, vertical: kDefaultPaddin),
