@@ -26,6 +26,19 @@ class _BodyState extends State<Body> {
   var _foodNote = '';
   var _itemCounter = 1;
 
+  @override
+  void initState() {
+    super.initState();
+
+    CartItem cartItem = Provider.of<Cart>(
+      context,
+      listen: false,
+    ).onCartCheck('${widget.product.id}');
+
+    _foodNote = cartItem.note;
+    _itemCounter = cartItem.quantity;
+  }
+
   void _updateFoodNote(text) {
     setState(() {
       _foodNote = text;
@@ -50,10 +63,11 @@ class _BodyState extends State<Body> {
   }
 
   void _addToCart(int productId, int price, String title) {
+    FocusScope.of(context).requestFocus(FocusNode());
     Provider.of<Cart>(
       context,
       listen: false,
-    ).addItem('$productId', price, title, _foodNote);
+    ).addItem('$productId', price, title, _foodNote, _itemCounter);
   }
 
   @override
@@ -89,7 +103,10 @@ class _BodyState extends State<Body> {
                       children: [
                         TasteAndBadge(product: widget.product),
                         Description(description: widget.product.description),
-                        FoodNote(updateFoodNote: _updateFoodNote),
+                        FoodNote(
+                          updateFoodNote: _updateFoodNote,
+                          initialText: _foodNote,
+                        ),
                         const SizedBox(height: kDefaultPaddin),
                         CounterWithFavorite(
                           itemCounter: _itemCounter,

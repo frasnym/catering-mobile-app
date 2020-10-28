@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:catering_app/constants.dart';
 
 class FoodNote extends StatelessWidget {
-  const FoodNote({
+  FoodNote({
     Key key,
     this.updateFoodNote,
+    this.initialText,
   }) : super(key: key);
 
   final Function updateFoodNote;
+  final String initialText;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      initialValue: initialText,
       onChanged: (text) => updateFoodNote(text),
       decoration: const InputDecoration(
         border: const OutlineInputBorder(
