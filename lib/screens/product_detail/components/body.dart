@@ -5,13 +5,28 @@ import 'package:catering_app/models/product.dart';
 import 'package:catering_app/screens/product_detail/components/product_title_image.dart';
 import 'package:catering_app/screens/product_detail/components/taste_and_badge.dart';
 import 'package:catering_app/screens/product_detail/components/description.dart';
+import 'package:catering_app/screens/product_detail/components/food_note.dart';
 import 'package:catering_app/screens/product_detail/components/counter_with_favorite.dart';
 import 'package:catering_app/screens/product_detail/components/add_to_cart.dart';
 
-class Body extends StatelessWidget {
+class Body extends StatefulWidget {
   final Product product;
 
   const Body({Key key, this.product}) : super(key: key);
+
+  @override
+  _BodyState createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+  var _foodNote = '';
+
+  void _updateFoodNote(text) {
+    setState(() {
+      _foodNote = text;
+    });
+    print(_foodNote);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,34 +59,16 @@ class Body extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        TasteAndBadge(
-                          product: product,
-                        ),
-                        Description(description: product.description),
-                        TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: kTextLightColor,
-                              ),
-                            ),
-                            prefixIcon: const Icon(
-                              Icons.edit,
-                              color: Colors.black54,
-                            ),
-                            hintText: 'Note to modify food as You like :)',
-                            hintStyle: const TextStyle(
-                                fontSize: 15.0, color: kTextLightColor),
-                          ),
-                          maxLines: 2,
-                        ),
+                        TasteAndBadge(product: widget.product),
+                        Description(description: widget.product.description),
+                        FoodNote(updateFoodNote: _updateFoodNote),
                         const SizedBox(height: kDefaultPaddin),
                         CounterWithFavorite(),
-                        AddToCart(product: product),
+                        AddToCart(product: widget.product),
                       ],
                     ),
                   ),
-                  ProductTitleImage(product: product),
+                  ProductTitleImage(product: widget.product),
                 ],
               ),
             ),
@@ -81,3 +78,4 @@ class Body extends StatelessWidget {
     );
   }
 }
+
