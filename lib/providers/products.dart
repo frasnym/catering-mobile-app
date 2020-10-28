@@ -145,6 +145,10 @@ class Products with ChangeNotifier {
     return _items.where((prod) => prod.isBestSeller).toList();
   }
 
+  List<Product> findRecomendedItem() {
+    return _items.where((prod) => prod.isRecomended).toList();
+  }
+
   List<Product> findByContainSubCatetogyId(int id) {
     return _items.where((prod) {
       return prod.subcategories.contains(id);
