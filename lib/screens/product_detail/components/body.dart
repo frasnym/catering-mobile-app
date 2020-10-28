@@ -15,45 +15,68 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuerySize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery.of(context).size;
 
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(
-            height: mediaQuerySize.height,
-            child: Stack(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: mediaQuerySize.height * 0.3),
-                  padding: EdgeInsets.only(
-                    top: mediaQuerySize.height * 0.12,
-                    left: kDefaultPaddin,
-                    right: kDefaultPaddin,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(24),
-                      topRight: Radius.circular(24),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+      },
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: screenSize.height,
+              child: Stack(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(top: screenSize.height * 0.3),
+                    padding: EdgeInsets.only(
+                      top: screenSize.height * 0.05,
+                      left: kDefaultPaddin,
+                      right: kDefaultPaddin,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(24),
+                        topRight: Radius.circular(24),
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        TasteAndBadge(
+                          product: product,
+                        ),
+                        Description(description: product.description),
+                        TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: kTextLightColor,
+                              ),
+                            ),
+                            prefixIcon: const Icon(
+                              Icons.edit,
+                              color: Colors.black54,
+                            ),
+                            hintText: 'Note to modify food as You like :)',
+                            hintStyle: const TextStyle(
+                                fontSize: 15.0, color: kTextLightColor),
+                          ),
+                          maxLines: 2,
+                        ),
+                        const SizedBox(height: kDefaultPaddin),
+                        CounterWithFavorite(),
+                        AddToCart(product: product),
+                      ],
                     ),
                   ),
-                  child: Column(
-                    children: [
-                      TasteAndBadge(
-                        product: product,
-                      ),
-                      Description(description: product.description),
-                      CounterWithFavorite(),
-                      AddToCart(product: product),
-                    ],
-                  ),
-                ),
-                ProductTitleImage(product: product),
-              ],
+                  ProductTitleImage(product: product),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
