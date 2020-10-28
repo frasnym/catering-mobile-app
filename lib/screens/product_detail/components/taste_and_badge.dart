@@ -60,7 +60,10 @@ class TasteAndBadge extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: kDefaultPaddin / 4),
-                const Icon(Icons.thumb_up),
+                Icon(
+                  Icons.thumb_up,
+                  color: product.color,
+                ),
               ],
             ),
           ),
@@ -73,7 +76,10 @@ class TasteAndBadge extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: kDefaultPaddin / 4),
-                const Icon(Icons.thumb_up),
+                Icon(
+                  Icons.thumb_up,
+                  color: product.color,
+                ),
               ],
             ),
           ),
