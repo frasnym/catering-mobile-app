@@ -5,7 +5,6 @@ import 'package:catering_app/models/product.dart';
 import 'package:catering_app/constants.dart';
 
 class ItemCard extends StatelessWidget {
-
   final Product product;
   final Function press;
 
@@ -34,7 +33,8 @@ class ItemCard extends StatelessWidget {
               child: Hero(
                 tag: '${product.id}',
                 child: FadeInImage(
-                  placeholder: const AssetImage('assets/images/cutlery_placeholder.png'),
+                  placeholder:
+                      const AssetImage('assets/images/cutlery_placeholder.png'),
                   image: NetworkImage(product.imageUrl),
                 ),
               ),
@@ -46,13 +46,11 @@ class ItemCard extends StatelessWidget {
             ),
             child: Text(
               product.title,
-              style: const TextStyle(
-                color: kTextLightColor,
-              ),
+              style:
+                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 12),
             ),
           ),
           Text(
-            // '${product.price}',
             '${formatCurrency.format(product.price)}',
             style: const TextStyle(
               fontWeight: FontWeight.bold,

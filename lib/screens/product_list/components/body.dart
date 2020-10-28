@@ -17,10 +17,11 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   var _subCategoryId = 1;
-  
+
   @override
   Widget build(BuildContext context) {
-    final _products = Provider.of<Products>(context, listen: false).findByContainSubCatetogyId(_subCategoryId);
+    final _products = Provider.of<Products>(context, listen: false)
+        .findByContainSubCatetogyId(_subCategoryId);
 
     void changeSubCategory(int selectedSubCategoryId) {
       setState(() {
@@ -33,19 +34,12 @@ class _BodyState extends State<Body> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPaddin,
             vertical: kDefaultPaddin / 2,
           ),
-          child: Text(
-            'Foods!',
-            style: Theme.of(context).textTheme.headline5.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+          child: Categories(
+            categoryId: widget.categoryId,
+            changeSubCategory: changeSubCategory,
           ),
-        ),
-        Categories(
-          categoryId: widget.categoryId,
-          changeSubCategory: changeSubCategory,
         ),
         Expanded(
           child: Padding(

@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final popularItem = Provider.of<Products>(context).findPopularItem();
-    final recomendedItem = Provider.of<Products>(context).findRecomendedItem();
+    // final recomendedItem = Provider.of<Products>(context).findRecomendedItem();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       buildExpandedMenu(
                         context,
-                        'https://i.ibb.co/BCDXHSs/home-banner-3.jpg',
+                        'https://i.ibb.co/BCDXHSs/home-banner-1.jpg',
                         'FOODS',
                         () => Navigator.of(context)
                             .pushNamed(ProductListScreen.routeName),
