@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: [
                       TasteAndBadge(
-                        isRecomended: product.isRecomended,
+                        product: product,
                       ),
                       Description(description: product.description),
                       CounterWithFavorite(),

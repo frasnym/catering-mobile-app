@@ -34,7 +34,6 @@ class ProductTitleImage extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
           ),
-          SizedBox(height: kDefaultPaddin * 2),
           Row(
             children: [
               RichText(
@@ -49,7 +48,7 @@ class ProductTitleImage extends StatelessWidget {
                   ),
                 ]),
               ),
-              SizedBox(width: kDefaultPaddin),
+              const SizedBox(width: kDefaultPaddin),
               Expanded(
                 child: Hero(
                   tag: '${product.id}',

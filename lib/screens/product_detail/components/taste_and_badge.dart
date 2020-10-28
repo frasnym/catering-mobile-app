@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+
+import 'package:catering_app/models/product.dart';
+
 import 'package:catering_app/constants.dart';
 
 class TasteAndBadge extends StatelessWidget {
-  final bool isRecomended;
+  final Product product;
 
   const TasteAndBadge({
     Key key,
-    this.isRecomended,
+    this.product,
   }) : super(key: key);
 
   @override
@@ -14,54 +17,66 @@ class TasteAndBadge extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Spiciness",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: ColorDot(
-                      color: Color(0XFFFF9999),
-                      text: 'Normal',
-                      isSelected: true,
-                    ),
-                  ),
-                  Expanded(
-                    child: ColorDot(
-                      color: Color(0XFFB20000),
-                      text: 'Mild',
-                    ),
-                  ),
-                  Expanded(
-                    child: ColorDot(
-                      color: Color(0XFF4C0000),
-                      text: 'Spicy',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        if (isRecomended)
+        // Expanded(
+        //   child: Column(
+        //     crossAxisAlignment: CrossAxisAlignment.start,
+        //     children: [
+        //       Text(
+        //         "Spiciness",
+        //         style: TextStyle(fontWeight: FontWeight.bold),
+        //       ),
+        //       Row(
+        //         children: [
+        //           Expanded(
+        //             child: ColorDot(
+        //               color: Color(0XFFFF9999),
+        //               text: 'Normal',
+        //               isSelected: true,
+        //             ),
+        //           ),
+        //           Expanded(
+        //             child: ColorDot(
+        //               color: Color(0XFFB20000),
+        //               text: 'Mild',
+        //             ),
+        //           ),
+        //           Expanded(
+        //             child: ColorDot(
+        //               color: Color(0XFF4C0000),
+        //               text: 'Spicy',
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        if (product.isBestSeller)
           Expanded(
             child: Column(
               children: [
-                Text(
-                  'Recomended',
+                const Text(
+                  'Best Seller',
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: kDefaultPaddin / 4),
-                Icon(Icons.thumb_up),
+                const SizedBox(height: kDefaultPaddin / 4),
+                const Icon(Icons.thumb_up),
               ],
             ),
           ),
-        if (!isRecomended) Expanded(child: SizedBox(width: 1))
+        if (product.isRecomended)
+          Expanded(
+            child: Column(
+              children: [
+                const Text(
+                  'Recomended',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: kDefaultPaddin / 4),
+                const Icon(Icons.thumb_up),
+              ],
+            ),
+          ),
       ],
     );
   }

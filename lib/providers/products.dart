@@ -15,7 +15,8 @@ class Products with ChangeNotifier {
       subcategories: [
         3,
       ],
-      isRecomended: true
+      isRecomended: true,
+      isBestSeller: false,
     ),
     Product(
       id: 2,
@@ -29,7 +30,8 @@ class Products with ChangeNotifier {
         2,
         3,
       ],
-      isRecomended: false
+      isRecomended: false,
+      isBestSeller: false,
     ),
     Product(
       id: 3,
@@ -42,7 +44,8 @@ class Products with ChangeNotifier {
       subcategories: [
         1,
       ],
-      isRecomended: false
+      isRecomended: false,
+      isBestSeller: false,
     ),
     Product(
       id: 4,
@@ -55,7 +58,8 @@ class Products with ChangeNotifier {
       subcategories: [
         3,
       ],
-      isRecomended: false
+      isRecomended: false,
+      isBestSeller: false,
     ),
     Product(
       id: 5,
@@ -68,7 +72,8 @@ class Products with ChangeNotifier {
       subcategories: [
         3,
       ],
-      isRecomended: false
+      isRecomended: false,
+      isBestSeller: true,
     ),
     Product(
       id: 6,
@@ -81,7 +86,8 @@ class Products with ChangeNotifier {
       subcategories: [
         5,
       ],
-      isRecomended: true
+      isRecomended: true,
+      isBestSeller: true,
     ),
     Product(
       id: 7,
@@ -94,7 +100,8 @@ class Products with ChangeNotifier {
       subcategories: [
         4,
       ],
-      isRecomended: true
+      isRecomended: true,
+      isBestSeller: true,
     ),
     Product(
       id: 8,
@@ -107,7 +114,8 @@ class Products with ChangeNotifier {
       subcategories: [
         2,
       ],
-      isRecomended: true
+      isRecomended: true,
+      isBestSeller: true,
     ),
     Product(
       id: 9,
@@ -120,7 +128,8 @@ class Products with ChangeNotifier {
       subcategories: [
         4,
       ],
-      isRecomended: false
+      isRecomended: false,
+      isBestSeller: false,
     ),
   ];
 
