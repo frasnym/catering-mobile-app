@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:intl/intl.dart';
-
 import 'package:catering_app/constants.dart';
 import 'package:catering_app/models/product.dart';
 
@@ -12,9 +10,6 @@ class ProductTitleImage extends StatelessWidget {
   }) : super(key: key);
 
   final Product product;
-
-  final formatCurrency =
-      NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
   @override
   Widget build(BuildContext context) {

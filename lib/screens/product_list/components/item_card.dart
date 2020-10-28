@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import 'package:catering_app/models/product.dart';
 
 import 'package:catering_app/constants.dart';
 
 class ItemCard extends StatelessWidget {
-  final formatCurrency =
-      NumberFormat.simpleCurrency(locale: 'id_ID', decimalDigits: 0);
 
   final Product product;
   final Function press;

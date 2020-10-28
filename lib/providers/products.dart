@@ -142,7 +142,7 @@ class Products with ChangeNotifier {
   }
 
   List<Product> findPopularItem() {
-    return _items.where((prod) => prod.isRecomended).toList();
+    return _items.where((prod) => prod.isBestSeller).toList();
   }
 
   List<Product> findByContainSubCatetogyId(int id) {

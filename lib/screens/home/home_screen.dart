@@ -5,6 +5,7 @@ import 'package:catering_app/providers/products.dart';
 
 import 'package:catering_app/constants.dart';
 import 'package:catering_app/screens/home/components/home_banner.dart';
+import 'package:catering_app/screens/home/components/item_card.dart';
 import 'package:catering_app/screens/product_list/product_list_screen.dart';
 import 'package:catering_app/screens/product_detail/product_detail_screen.dart';
 
@@ -25,7 +26,9 @@ class HomeScreen extends StatelessWidget {
               HomeBanner(screenSize: screenSize),
               Padding(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: kDefaultPaddin * 1.5, vertical: kDefaultPaddin),
+                  horizontal: kDefaultPaddin * 1.5,
+                  vertical: kDefaultPaddin,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -37,43 +40,17 @@ class HomeScreen extends StatelessWidget {
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     Container(
-                      height: 100,
+                      height: 150,
                       margin: const EdgeInsets.symmetric(
                           vertical: kDefaultPaddin / 2),
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
-                        itemBuilder: (_, index) => GestureDetector(
-                          onTap: () => Navigator.of(context).pushNamed(
+                        itemBuilder: (_, index) => ItemCard(
+                          press: () => Navigator.of(context).pushNamed(
                               ProductDetailScreen.routeName,
                               arguments: popularItem[index].id),
-                          child: Container(
-                            padding: const EdgeInsets.all(kDefaultPaddin / 4),
-                            decoration: BoxDecoration(
-                              color: popularItem[index].color,
-                              borderRadius: BorderRadius.circular(7),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.5),
-                                  spreadRadius: 1,
-                                  blurRadius: 3,
-                                  offset: Offset(
-                                      1, 1), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            margin: const EdgeInsets.all(kDefaultPaddin / 4),
-                            width: 100,
-                            child: Hero(
-                              tag: '${popularItem[index].id}',
-                              child: FadeInImage(
-                                placeholder: const AssetImage(
-                                    'assets/images/cutlery_placeholder.png'),
-                                image:
-                                    NetworkImage(popularItem[index].imageUrl),
-                              ),
-                            ),
-                          ),
+                          product: popularItem[index],
                         ),
                       ),
                     ),
