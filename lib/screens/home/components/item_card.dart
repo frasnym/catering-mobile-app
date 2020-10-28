@@ -49,13 +49,10 @@ class ItemCard extends StatelessWidget {
               ),
               width: 100,
               height: 100,
-              child: Hero(
-                tag: '${product.id}',
-                child: FadeInImage(
-                  placeholder:
-                      const AssetImage('assets/images/cutlery_placeholder.png'),
-                  image: NetworkImage(product.imageUrl),
-                ),
+              child: FadeInImage(
+                placeholder:
+                    const AssetImage('assets/images/cutlery_placeholder.png'),
+                image: NetworkImage(product.imageUrl),
               ),
             ),
           ),
