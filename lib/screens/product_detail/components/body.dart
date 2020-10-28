@@ -50,8 +50,10 @@ class _BodyState extends State<Body> {
   }
 
   void _addToCart(int productId, int price, String title) {
-    Provider.of<Cart>(context, listen: false)
-        .addItem('$productId', price, title, _foodNote);
+    Provider.of<Cart>(
+      context,
+      listen: false,
+    ).addItem('$productId', price, title, _foodNote);
   }
 
   @override
@@ -93,6 +95,7 @@ class _BodyState extends State<Body> {
                           itemCounter: _itemCounter,
                           minusItemCounter: _minusItemCounter,
                           plusItemCounter: _plusItemCounter,
+                          color: widget.product.color,
                         ),
                         AddToCart(
                           product: widget.product,

@@ -15,7 +15,10 @@ class ProductDetailScreen extends StatelessWidget {
     final productId =
         ModalRoute.of(context).settings.arguments as int; // is the id!
 
-    final productData = Provider.of<Products>(context).findById(productId);
+    final productData = Provider.of<Products>(
+      context,
+      listen: false,
+    ).findById(productId);
 
     return Scaffold(
       backgroundColor: productData.color,

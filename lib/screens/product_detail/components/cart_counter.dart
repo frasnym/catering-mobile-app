@@ -8,11 +8,13 @@ class CartCounter extends StatelessWidget {
     @required this.minusItemCounter,
     @required this.itemCounter,
     @required this.plusItemCounter,
+    this.color,
   }) : super(key: key);
 
   final Function minusItemCounter;
   final int itemCounter;
   final Function plusItemCounter;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +37,15 @@ class CartCounter extends StatelessWidget {
     return SizedBox(
       height: 30,
       width: 40,
-      child: OutlineButton(
+      child: RaisedButton(
+        onPressed: itemCounter == 1 && icon == Icons.remove ? null : press,
         padding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        child: Icon(icon),
-        onPressed: press,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+        color: color,
+        child: Icon(
+          icon,
+          color: Colors.white,
+        ),
       ),
     );
   }

@@ -21,8 +21,10 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
-    List<Subcategory> subcategories =
-        Provider.of<Subcategories>(context).findByCategoryId(widget.categoryId);
+    List<Subcategory> subcategories = Provider.of<Subcategories>(
+      context,
+      listen: false,
+    ).findByCategoryId(widget.categoryId);
 
     return Padding(
       padding: const EdgeInsets.only(bottom: kDefaultPaddin),

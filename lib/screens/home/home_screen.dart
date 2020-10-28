@@ -16,8 +16,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final popularItem = Provider.of<Products>(context).findPopularItem();
-    // final recomendedItem = Provider.of<Products>(context).findRecomendedItem();
+    final popularItem = Provider.of<Products>(
+      context,
+      listen: false,
+    ).findPopularItem();
+    // final recomendedItem = Provider.of<Products>(context, listen: false,).findRecomendedItem();
 
     return Scaffold(
       body: SingleChildScrollView(

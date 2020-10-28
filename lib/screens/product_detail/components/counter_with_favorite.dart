@@ -9,12 +9,13 @@ class CounterWithFavorite extends StatelessWidget {
     Key key,
     this.minusItemCounter,
     this.plusItemCounter,
-    this.itemCounter,
+    this.itemCounter, this.color,
   }) : super(key: key);
 
   final Function minusItemCounter;
   final Function plusItemCounter;
   final int itemCounter;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +26,7 @@ class CounterWithFavorite extends StatelessWidget {
           minusItemCounter: minusItemCounter,
           itemCounter: itemCounter,
           plusItemCounter: plusItemCounter,
+          color: color,
         ),
         DecoratedBox(
           child: Padding(
