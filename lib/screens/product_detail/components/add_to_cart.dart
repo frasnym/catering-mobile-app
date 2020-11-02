@@ -7,7 +7,7 @@ class AddToCart extends StatelessWidget {
   const AddToCart({
     Key key,
     @required this.product,
-    this.addToCart,
+    @required this.addToCart,
   }) : super(key: key);
 
   final Product product;
@@ -37,11 +37,20 @@ class AddToCart extends StatelessWidget {
                 Icons.add_shopping_cart,
                 color: product.color,
               ),
-              onPressed: () => addToCart(
-                product.id,
-                product.price,
-                product.title,
-              ),
+              onPressed: () {
+                Scaffold.of(context).hideCurrentSnackBar();
+                Scaffold.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Added to cart!'),
+                    duration: Duration(seconds: 2),
+                  ),
+                );
+                addToCart(
+                  product.id,
+                  product.price,
+                  product.title,
+                );
+              },
             ),
           ),
           Expanded(

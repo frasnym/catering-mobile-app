@@ -25,7 +25,7 @@ class ProductDetailScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: productData.color,
         elevation: 0,
-        actions: appBarActions(),
+        actions: appBarActions(context: context),
       ),
       body: Body(product: productData),
     );

@@ -13,9 +13,11 @@ class ProductListScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
-          image: const NetworkImage('https://i.ibb.co/BCDXHSs/home-banner-1.jpg'),
+          image:
+              const NetworkImage('https://i.ibb.co/BCDXHSs/home-banner-1.jpg'),
           fit: BoxFit.cover,
-          colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.1), BlendMode.dstIn),
+          colorFilter: new ColorFilter.mode(
+              Colors.white.withOpacity(0.1), BlendMode.dstIn),
         ),
       ),
       child: Scaffold(
@@ -29,7 +31,7 @@ class ProductListScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline6,
           ),
-          actions: appBarActions(color: kTextColor),
+          actions: appBarActions(color: kTextColor, context: context),
           backgroundColor: Colors.transparent,
           elevation: 0,
         ),
