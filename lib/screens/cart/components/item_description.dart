@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 class ItemDescription extends StatelessWidget {
   const ItemDescription({
     Key key,
-    @required this.cart,
+    @required this.cartId,
     @required this.product,
     @required this.subTotal,
+    @required this.cartItem,
   }) : super(key: key);
 
-  final CartItem cart;
+  final String cartId;
+  final CartItem cartItem;
   final Product product;
   final int subTotal;
 
@@ -23,12 +25,12 @@ class ItemDescription extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            cart.title,
+            cartItem.title,
             style: Theme.of(context).textTheme.headline6.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
-          SizedBox(height: kDefaultPaddin / 4),
+          const SizedBox(height: kDefaultPaddin / 4),
           Text(
             product.subtitle,
             style: Theme.of(context).textTheme.headline6.copyWith(
@@ -37,7 +39,11 @@ class ItemDescription extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                 ),
           ),
-          CounterWithSubtotal(cart: cart, subTotal: subTotal)
+          CounterWithSubtotal(
+            cartId: cartId,
+            cartItem: cartItem,
+            subTotal: subTotal,
+          )
         ],
       ),
     );
