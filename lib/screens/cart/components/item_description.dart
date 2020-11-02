@@ -31,14 +31,18 @@ class ItemDescription extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: kDefaultPaddin / 4),
-          Text(
-            product.subtitle,
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  fontSize: 16,
-                  color: kTextLightColor,
-                  fontWeight: FontWeight.normal,
-                ),
+          FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              product.subtitle,
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    fontSize: 16,
+                    color: kTextLightColor,
+                    fontWeight: FontWeight.normal,
+                  ),
+            ),
           ),
+          const SizedBox(height: kDefaultPaddin / 2),
           CounterWithSubtotal(
             cartId: cartId,
             cartItem: cartItem,

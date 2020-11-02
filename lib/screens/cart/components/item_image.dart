@@ -19,7 +19,7 @@ class ItemImage extends StatelessWidget {
       padding: const EdgeInsets.all(kDefaultPaddin / 2),
       margin: const EdgeInsets.only(
         right: kDefaultPaddin / 2,
-        bottom: kDefaultPaddin / 2,
+        bottom: kDefaultPaddin,
       ),
       decoration: BoxDecoration(
         color: product.color,
