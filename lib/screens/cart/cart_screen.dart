@@ -37,7 +37,7 @@ class CartScreen extends StatelessWidget {
         children: [
           Container(
             margin: const EdgeInsets.only(
-              top: kDefaultPaddin,
+              top: kDefaultPaddin / 2,
               right: kDefaultPaddin,
               left: kDefaultPaddin,
               bottom: kDefaultPaddin * 3,
