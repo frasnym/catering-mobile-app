@@ -1,6 +1,6 @@
 # Flutter: Catering App
 
-Building a dummy catering app with Flutter
+Building a catering app with Flutter
 
 ## Tools Used
 
@@ -18,3 +18,7 @@ Building a dummy catering app with Flutter
 | [carousel_slider](https://pub.dev/packages/carousel_slider) | 2.3.1 |
 | [flutter_svg](https://pub.dev/packages/flutter_svg) | 0.19.1 |
 | [url_launcher](https://pub.dev/packages/url_launcher) | 5.7.8 |
+
+### App UI
+
+![App UI](/ui.png)
