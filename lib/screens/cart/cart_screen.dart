@@ -1,15 +1,45 @@
+import 'package:flutter/material.dart';
+
+import 'package:provider/provider.dart';
+
+import 'package:catering_app/constants.dart';
 import 'package:catering_app/models/product.dart';
 import 'package:catering_app/providers/cart.dart';
 import 'package:catering_app/providers/products.dart';
 import 'package:catering_app/screens/cart/components/item_description.dart';
 import 'package:catering_app/screens/cart/components/item_image.dart';
-import 'package:flutter/material.dart';
-
-import 'package:catering_app/constants.dart';
-import 'package:provider/provider.dart';
+import 'package:catering_app/screens/cart/components/grand_total_checkout.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
+
+  showAlertDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text("Clear cart"),
+          content: const Text("Would you like to remove all item?"),
+          actions: [
+            FlatButton(
+              child: const Text("Cancel"),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            FlatButton(
+              child: const Text(
+                "Yes, Remove it!",
+                style: TextStyle(color: Colors.red),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+                Provider.of<Cart>(context, listen: false).clear();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +50,22 @@ class CartScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: kTextColor,
-        ),
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Text(
-          'Shopping Cart',
-          style: Theme.of(context)
-              .textTheme
-              .headline5
-              .copyWith(fontWeight: FontWeight.bold),
-        ),
-      ),
+          iconTheme: const IconThemeData(
+            color: kTextColor,
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+            'Shopping Cart',
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed:
+                  cart.itemCount == 0 ? null : () => showAlertDialog(context),
+            ),
+          ]),
       body: Stack(
         children: [
           Container(
@@ -65,65 +98,7 @@ class CartScreen extends StatelessWidget {
               },
             ),
           ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              width: screenSize.width,
-              padding: const EdgeInsets.symmetric(
-                horizontal: kDefaultPaddin,
-                vertical: kDefaultPaddin / 2,
-              ),
-              decoration: const BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    width: 1,
-                    color: kTextLightColor,
-                  ),
-                ),
-                color: Colors.white,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Grand Total',
-                        style: Theme.of(context).textTheme.headline6.copyWith(
-                              fontSize: 15,
-                              color: kTextLightColor,
-                            ),
-                      ),
-                      Text(
-                        '${formatCurrency.format(cart.totalAmount)}',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  RaisedButton(
-                    onPressed: () {
-                      // TODO checkout button
-                    },
-                    child: const Text(
-                      'Checkout',
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    ),
-                    color: Colors.red[600],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(kDefaultPaddin / 2),
-                      side: const BorderSide(color: Colors.red),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
+          GrandTotalCheckout(screenSize: screenSize, cart: cart)
         ],
       ),
     );

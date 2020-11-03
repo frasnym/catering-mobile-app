@@ -16,3 +16,5 @@ Building a dummy catering app with Flutter
 | [intl](https://pub.dev/packages/intl) | 0.16.1 |
 | [provider](https://pub.dev/packages/provider) | 4.3.2 |
 | [carousel_slider](https://pub.dev/packages/carousel_slider) | 2.3.1 |
+| [flutter_svg](https://pub.dev/packages/flutter_svg) | 0.19.1 |
+| [url_launcher](https://pub.dev/packages/url_launcher) | 5.7.8 |

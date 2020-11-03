@@ -31,6 +31,9 @@ dependencies:
   intl: ^0.16.1
   provider: ^4.3.2+2
   carousel_slider: ^2.3.1
+  flutter_svg: ^0.19.1
+  url_launcher: ^5.7.8
+
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +53,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/cutlery_placeholder.png
+    - assets/icons/whatsapp.svg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
