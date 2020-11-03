@@ -21,15 +21,15 @@ class CartCounter extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Remove item"),
-          content: Text("Would you like to remove this item?"),
+          title: const Text("Remove item"),
+          content: const Text("Would you like to remove this item?"),
           actions: [
             FlatButton(
-              child: Text("Cancel"),
+              child: const Text("Cancel"),
               onPressed: () => Navigator.of(context).pop(),
             ),
             FlatButton(
-              child: Text(
+              child: const Text(
                 "Yes, Remove it!",
                 style: TextStyle(color: Colors.red),
               ),
@@ -49,6 +49,7 @@ class CartCounter extends StatelessWidget {
   Widget build(BuildContext context) {
     final product = Provider.of<Products>(context, listen: false)
         .findById(int.parse(cartId));
+
     return Row(
       children: [
         buildSizedBox(

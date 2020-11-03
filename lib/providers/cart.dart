@@ -83,11 +83,6 @@ class Cart with ChangeNotifier {
         ),
       );
     }
-    print('id--${_items[productId].id}');
-    print('title--${_items[productId].title}');
-    print('note--${_items[productId].note}');
-    print('quantity--${_items[productId].quantity}');
-    print('price--${_items[productId].price}');
     notifyListeners();
   }
 
