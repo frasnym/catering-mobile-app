@@ -2,19 +2,51 @@ import 'package:flutter/material.dart';
 
 import 'package:catering_app/constants.dart';
 import 'package:catering_app/models/product.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AddToCart extends StatelessWidget {
   const AddToCart({
     Key key,
     @required this.product,
     @required this.addToCart,
+    this.itemCounter,
+    this.itemNote,
   }) : super(key: key);
 
   final Product product;
   final Function addToCart;
+  final int itemCounter;
+  final String itemNote;
 
   @override
   Widget build(BuildContext context) {
+    String url = '';
+    String order = '';
+    int number = 1;
+    int subTotal = 0;
+
+    sendOrderInstant() async {
+      url = 'https://wa.me/6281999200585?text=';
+      order += "Hello, I want to order this item(s) below:\r\n";
+
+      subTotal = itemCounter * product.price;
+      order +=
+          '$number. ${product.title} x$itemCounter: ${formatCurrency.format(subTotal)}\r\n';
+      if (itemNote.length > 0) {
+        order += 'Item No. $number notes: $itemNote\r\n';
+      }
+      order += '\r\nTotal: ${formatCurrency.format(subTotal)}';
+      order = Uri.encodeComponent(order);
+      // print(url + order);
+
+      if (await canLaunch(url + order)) {
+        await launch(url + order);
+      } else {
+        throw 'Could not launch $url';
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: kDefaultPaddin),
       child: Row(
@@ -56,21 +88,24 @@ class AddToCart extends StatelessWidget {
           Expanded(
             child: SizedBox(
               height: 50,
-              child: FlatButton(
+              child: FlatButton.icon(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
                 color: product.color,
-                child: Text(
+                icon: SvgPicture.asset(
+                  'assets/icons/whatsapp.svg',
+                  width: 20,
+                  color: Colors.white,
+                ),
+                label: Text(
                   'BUY NOW',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {
-                  // TODO instant checkout
-                },
+                onPressed: sendOrderInstant,
               ),
             ),
           ),

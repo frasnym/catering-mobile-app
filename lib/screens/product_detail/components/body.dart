@@ -117,6 +117,8 @@ class _BodyState extends State<Body> {
                         AddToCart(
                           product: widget.product,
                           addToCart: _addToCart,
+                          itemCounter: _itemCounter,
+                          itemNote: _foodNote,
                         ),
                       ],
                     ),

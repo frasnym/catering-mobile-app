@@ -39,8 +39,9 @@ class GrandTotalCheckout extends StatelessWidget {
       order += '\r\nTotal: ${formatCurrency.format(cart.totalAmount)}';
       order = Uri.encodeComponent(order);
       // print(url + order);
-      if (await canLaunch(url)) {
-        await launch(url);
+
+      if (await canLaunch(url + order)) {
+        await launch(url + order);
       } else {
         throw 'Could not launch $url';
       }
