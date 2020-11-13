@@ -1,6 +1,8 @@
-# Flutter: Catering App
+# Catering App - Flutter
 
 Building a catering app with Flutter
+
+You can try this application at [Google Play](https://play.google.com/store/apps/details?id=com.frasnym.catering_app)
 
 ## Tools Used
 
